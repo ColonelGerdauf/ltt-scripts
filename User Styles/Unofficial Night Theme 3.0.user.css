@@ -1,0 +1,482 @@
+@namespace url(http://www.w3.org/1999/xhtml);
+
+@-moz-document regexp("https?:\/\/linustechtips.com\/main(?:\/(?!admin)(?!page).*)?$") {
+    /*General classes*/
+    a {
+        color: #ccc/*#63BAFF/*#ACDAFF*/  ;
+    }
+    a:hover {
+        color: #03CDDD;
+    }
+    /*IPS*/
+    .ipsButton_secondary {
+        background-color: #333;
+        color: #BBB;
+        box-shadow: 0px 1px 0px rgb(41, 41, 41) inset, 0px 1px 0px rgba(0, 0, 0, 0.3);
+        border-color: #222;
+    }
+    .ipsButton_secondary:hover {
+        color:#DDD;
+        border-color: #444;
+    }
+    
+    .ipsUserPhoto {
+        border-color: #333;
+        background-color: #333;
+    }
+    
+    .ipsType_sectiontitle {
+        color:#ccc;
+    }
+    
+    .ipsBox_container {
+        background: transparent;
+    }
+    
+    .row1 {
+        background-color: #1f1f1f;
+    }
+    .header {
+        background-color: #666;
+        color: #ccc;
+    }
+    .ipbmenu_content, .ipb_autocomplete {
+        background-color: #2f2f2f;
+        border-color: #444;
+    }
+    .ipbmenu_content a:hover {
+        background-color: #3E3E3E;
+    }
+    .message {
+        background-color: #204805;
+        border-color: #606060;
+        color: #ccc;
+    }
+    .message.unspecific {
+        background-color: #2C2C2C;
+        border-color: #444;
+        color:#ccc;
+    }
+    .message.error {
+        background-color: #4f1818;
+        color:#ccc;
+        border-color: #773D36;
+    }
+    .ipsBadge_lightgrey {
+        background-color: #444;
+    }
+    a.name {
+        color: #A3D4FF;
+    }
+    .ipsSideMenu h4 {
+        color: #ccc;
+    }
+    .general_box {
+        background-color: #2C2C2C;
+    }
+    .desc, .desc.blend_links a, p.posted_info {
+        color: #A4A4A4;
+    }
+    .ipsSideMenu ul, .ipsSettings_section, body#ipboard_body fieldset.submit, body#ipboard_body p.submit {
+        border-top-color: #3C3C3C;
+    }
+    .post_block.row1 {
+        background-color: #333;
+    }
+    .post_block.row2 {
+        background-color: #2A2A2A;
+    }
+    .ipsFloatingAction {
+        background-color: #2C2C2C;
+    }
+    .ipsBox {
+        box-shadow: 0px 2px 5px 0px rgba(2, 2, 2, 0.53);
+    }
+    #ipboard_body .ips_editor {
+        border-color: transparent;
+    }
+    .ipsBox_notice, .ipsBox_highlight {
+        background-color:#3C3C3C;
+        border-bottom-color: #4C4C4C;
+    }
+    .ipsForm_submit {
+        background: #3C3C3C;
+        border-top-color:#4C4C4C;
+    }
+    .ipb_autocomplete li.active, div#member_filters fieldset.submit {
+        background-color: #3c3c3c;
+    }
+    div#search_results li.liwrap {
+        border-top-color:#3c3c3c;
+    }
+    /*Thread and section dividers in index/subforums as well as loads of menus etc*/
+    table.ipb_table td, #board_index table.ipb_table td, .topics_item, #status_wrapper .ipsBox_container, .ipsSideMenu ul li,
+    .ipsComment, .ipbmenu_content li, .ipb_autocomplete li, #cfds_category .cfds_category_row, .block_list > li, .ipsType_sectiontitle,
+    .poll_question, .preview_info, .userpopup dl, div#member_filters li {
+        border-bottom-color: #3C3C3C;
+    }
+    /*Catman*/
+    .paper-button {
+        color: #ccc !important;
+    }
+    .paper-card {
+        background-color: #262626;
+        color: #ccc;
+    }
+    /*.paper-card .paper-card-actions {
+        justify-content: space-around;
+    }*/
+    
+    /*specific selectors in general order of appearance*/
+    body {
+        background-color:#222 !important;
+        color:#ccc;
+    }
+    /*dropdowns*/
+    #user_link.menu_active, #notify_link.menu_active, #inbox_link.menu_active {
+        background-color: #303030;
+        color: #ccc;
+        background-position: center top;
+    }
+    #user_link.menu_active #user_link_dd, .menu_active .dropdownIndicator, li.active .dropdownIndicator {
+        background-position: left center;
+    }
+    .ipsHeaderMenu {
+        background: #2C2C2C;
+    }
+    #user_link_menucontent #links li {
+        text-shadow: 0 1px 0 #000;
+    }
+    .ipsHeaderMenu a {
+        color: #96C6F5;
+    }
+    .ipsHeaderMenu .ipsType_sectiontitle {
+        color: #ccc;
+    }
+    /*search*/
+    #search_wrap {
+        background-color: #222;
+    }
+    #main_search {
+        color: #ccc !important;;
+    }
+    /*container*/
+    #content {
+        background-color: #1B1B1B;
+    }
+    /*nav*/
+    #community_app_menu > li > a {
+        background-color: #333;
+    }
+    .breadcrumb, .breadcrumb a {
+        color: #aaa;
+    }
+    /*titles*/
+    .ipsType_pagetitle, .ipsType_subtitle {
+        color: #EEE;
+    }
+    
+    .maintitle {
+        background-color: #444;
+    }
+    /*posts*/
+    .post_block {
+        background: none;
+    }
+    
+    .cm-author a {
+        color: #ccc !important;
+    }
+    .row2, .ipsBox, #forum_table {
+        background-color: #262626;
+    }
+    
+    .post_body .post {
+        color: #ccc;
+    }
+    
+    .post_block.solved, .post_block.feature_box {
+        background-color: #304E2C;
+    }
+    .post_block.solved .custom_fields .ft {
+        color: #A8A8A8;
+    }
+    .post_controls [data-post-button="unanswer"] > img {
+        display:none;
+    }
+    
+    acronym.bbc {
+        border-bottom-color: #ccc;
+    }
+    
+    /*Hidden stuff*/
+    .moderated, body .moderated td, .moderated td.altrow, .post_block.moderated, body td.moderated, body td.moderated {
+        background-color: #4f1818;
+    }
+    .moderated, .moderated a {
+        color: #a29093;
+        border-color: #a29093;
+    }
+    .moderated .row2, .moderated .author_info {
+        background-color: #300303;
+    }
+    .bbc_url, .bbc_email {
+        color: #4E84CB;
+    }
+    
+    /*Quotes*/ /*2nd selector is because the editor is messed up*/
+    p.citation, .cke_show_borders .ipsBlockquote cite {
+        background: #1B1B1B;
+        border: none !important;
+    }
+    blockquote.ipsBlockquote {
+        background-color: #383838;
+        border: 1px solid #555; /*actually for nestled quotes, this needs to be here*/
+    }
+    /*When I said the editor is messed up...*/
+    .cke_show_borders .ipsBlockquote cite {
+        padding: 10px 10px 8px;
+        width: calc(100% + 3px);
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+    .cke_show_borders .ipsBlockquote {
+        padding-top: 0;
+    }
+    
+    /*Attachments*/
+    #attachments li {
+        background-color: #1C1C1C;
+        border-collapse: #4C4C4C;
+    }
+    
+    /*Likes*/
+    .ipsLikeButton {
+        background: #DB4105 !important;
+        border: 1px solid rgba(189, 65, 5, 0.6) !important;
+        padding: 0 6px;
+    }
+    .ipsLikeBar_info {
+        background-color: #3F3F3F;
+    }
+    
+    /*signature*/
+    .signature {
+       border-top-color: #3E3E3E;
+    }
+    
+    /*Editor*/
+    .cke_skin_ips .cke_contents iframe {
+        border-color: #444;
+    }
+    .cke_panel_listItem a, a.cke_colorbox, a.cke_colorauto, a.cke_colormore {
+        border-color: #444;
+        color:#ccc;
+    }
+    a.cke_colorauto:hover, a.cke_colormore:hover, a.cke_colorauto:focus, a.cke_colormore:focus, a.cke_colorauto:active, a.cke_colormore:active, a.cke_colorbox:hover, a.cke_colorbox:focus, a.cke_colorbox:active {
+        background-color: #444;
+    }
+    
+    /*page selectors*/
+    .pagination .back a, .pagination .forward a {
+        background-color: #262626;
+        transition: 0.2s all;
+        color: #aaa;
+    }
+    .pagination .pages a:hover {
+        background-color: #383838;
+    }
+    /*Footer*/
+    .statistics {
+        border-top-color: #2C2C2C;
+    }
+    
+    #footer_utilities .ipsList_inline > li > a {
+        color:#ccc;
+    }
+    #footer_utilities a.menu_active {
+        background-color: #3C3C3C;
+        border-color:#4C4C4C;
+    }
+    
+    /*Gilded posts*/
+    .gilded, .gilded .post_block {
+        background-color: #474747;
+    }
+    .gilded .custom_fields {
+        color: #B6B6B6;
+    }
+    .gilded .custom_fields .ft, .gilded .author_info .group_title {
+        color: #7E7E7E;
+    }
+    .gildedby {
+        background-color: #ECC700;
+        color: #181818;
+    }
+    .gildedby a {
+        color: inherit;
+    }
+    
+    /*vertical tabs, as in user profiles*/
+    .ipsVerticalTabbed_tabs li {
+        background-color: #383838;
+        border:none;
+    }
+    .ipsVerticalTabbed_tabs li a {
+        color: #ccc;
+    }
+    .ipsVerticalTabbed_tabs li a:hover {
+        background-color: #595959;
+        color: #ccc;
+    }
+    /*Unread marker columns in forum views*/
+    .unread .altrow, .unread.altrow {
+        background-color: transparent;
+    }
+    /*Make read threads lighter in forum view*/
+    tr.__topic:not(.unread) {
+        background-color:#2C2C2C;
+    }
+    /*page selector on threads in forum view*/
+    ul.mini_pagination li a {
+        background-color: #666;
+        color: #ccc;
+        border-color: #888;
+        transition: 0.5s all !important; /*not working?*/
+    }
+    /*Highlighted threads*/
+    .highlighted, .highlighted .altrow {
+        background-color: #4B4B4B;
+    }
+    table.ipb_table .preview td {
+        border-color: #4B4B4B;
+    }
+    /*Announcements*/
+    #announcements td {
+        border-bottom: none;
+    }
+    
+    /*Status updates*/
+    .status_feedback .row2 {
+        background-color: #363636;
+    }
+    .input_text, .status_update {
+        background-color: #262626;
+        color:#ccc;
+        border-color: #666;
+    }
+    
+    /*And of course PMs have to be different*/
+    #messenger_content .post_block {
+        background-color: #262626;
+    }
+    ul.post_controls a {
+        color:#ccc;
+    }
+    #folder_list .total {
+        background-color: #3C3C3C;
+    }
+    /*Profiles - because for some reason they need special styling*/
+    @-moz-document url-prefix("http://linustechtips.com/main/user/"),
+                   url-prefix("https://linustechtips.com/main/user/") {
+        #profile_background {
+            /*background: rgba(27, 27, 27, 0.75) !important;*/
+            background: transparent !important;
+        }
+        #content {
+            background: rgba(27,27,27,0.5) !important;
+        }
+        .topic_buttons li.non_button a, #footer_utilities {
+            background-color: rgba(44, 44, 44, 0.8) !important;
+        }
+        #content  {
+            max-width: 1640px;
+        }
+        .paper-card {
+            background-color: rgba(38, 38, 38, 0.8) !important;
+        }
+    }
+    .reputation.zero {
+        background-color: #3C3C3C;
+        color:#ccc;
+    }
+    /*User hovercards*/
+    .popupInner {
+        background-color: #222;
+    }
+    /*Board stats (at bottom of index)*/
+    #board_stats .value {
+        color:#ccc;
+        background-color: #333;
+    }
+    /*Fix read/unread icons in index*/
+    .forum_marker > img, .col_c_icon > img {
+        border-radius: 8px;
+    }
+    /*make the read forum indicator look better*/
+    .col_c_icon > img {
+        opacity: 0.1;
+    }
+    
+    /*UCP*/
+    .ipsSettings_sectiontitle {
+        color: #CCC;
+    }
+    #usercp_content .notification_table td {
+        border-color: #4C4C4C;
+    }
+    
+    /*Blogs*/
+    .ipsSideBlock {
+        background-color:#2C2C2C;
+    }
+    table.mini_cal .cellHasEntry {
+        background-color: #474747;
+    }
+    
+    /*Gallery*/
+    .photoStipNav.nleft:hover, .photoStipNav.nright:hover {
+        background-color: #3C3C3C;
+    }
+    
+    /*Nexus (Store) */
+    .no_messages {
+        color: #ccc;
+        background-color: #454545;
+    }
+    /*Classifieds*/
+    @-moz-document url-prefix("http://linustechtips.com/main/classifieds/"),
+                   url-prefix("https://linustechtips.com/main/classifieds/"),
+                   url-prefix("http://linustechtips.com/main/index.php?app=classifieds"),
+                   url-prefix("https://linustechtips.com/main/index.php?app=classifieds")  {
+        .cfdsthumb {
+            border-color: #3C3C3C;
+            background-color: #3C3C3C;
+        }
+        #cfds_category .item_info {
+            border-left-color: #3C3C3C;
+        }
+        .price_box, .purchase_box, #advertiser_overview ul a {
+            background-color: #3C3C3C;
+        }
+        
+        ul#tabNav {
+            border: none;
+        }
+        ul#tabNav li {
+            background: none;
+        }
+        ul#tabNav li a {
+            border:none;
+            margin-right: 2px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+        }
+        ul#tabNav li a:not(.selected) {
+            background-color: #333;
+        }
+        ul#tabNav li a.selected {
+            
+        }
+    }
+}
