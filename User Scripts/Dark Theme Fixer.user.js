@@ -5,8 +5,8 @@
 // @include /^https?:\/\/(?:[^\.]+\.)?linustechtips\.com\/main\/(?:topic|blogs|blog)\/?.*$/
 // @require https://code.jquery.com/jquery-2.1.4.min.js
 // @version 1.0.0
-// @updateURL   https://github.com/stormdr1ve/ltt-scripts/raw/master/Dark%20Theme%20Fixer.user.js
-// @downloadURL https://github.com/stormdr1ve/ltt-scripts/raw/master/Dark%20Theme%20Fixer.user.js
+// @updateURL   https://github.com/stormdr1ve/ltt-scripts/raw/master/User%20Scripts/Dark%20Theme%20Fixer.user.js
+// @downloadURL https://github.com/stormdr1ve/ltt-scripts/raw/master/User%20Scripts/Dark%20Theme%20Fixer.user.js
 // @grant none
 // ==/UserScript==
 

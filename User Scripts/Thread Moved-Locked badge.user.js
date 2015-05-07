@@ -4,8 +4,8 @@
 // @version 1.1.0
 // @description Adds a badge to a thread title (in the thread list) to indicate whether it has been locked or moved, like "answered" is handled currently
 // @include /^https?:\/\/linustechtips\.com\/main\/forum\/.*$/
-// @updateURL   https://monkeyguts.com/496.meta.js?c
-// @downloadURL https://monkeyguts.com/496.user.js?c
+// @updateURL   https://github.com/stormdr1ve/ltt-scripts/raw/master/User%20Scripts/Thread%20Moved-Locked%20badge.user.js
+// @downloadURL https://github.com/stormdr1ve/ltt-scripts/raw/master/User%20Scripts/Thread%20Moved-Locked%20badge.user.js
 // ==/UserScript==
 
 

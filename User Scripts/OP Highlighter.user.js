@@ -5,8 +5,8 @@
 // @description Marks the original poster of a thread with "[Original Poster]" to help with reading long threads
 // @include /^https?:\/\/(?:[^\.]+\.)?linustechtips\.com\/main\/topic\/.*$/
 // @require https://code.jquery.com/jquery-2.1.4.min.js
-// @updateURL   https://monkeyguts.com/212.meta.js?c
-// @downloadURL https://monkeyguts.com/212.user.js?c
+// @updateURL   https://github.com/stormdr1ve/ltt-scripts/raw/master/User%20Scripts/OP%20Highlighter.user.js
+// @downloadURL https://github.com/stormdr1ve/ltt-scripts/raw/master/User%20Scripts/OP%20Highlighter.user.js
 // ==/UserScript==
 
 var $jq = jQuery.noConflict();
