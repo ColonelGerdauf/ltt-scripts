@@ -50,6 +50,8 @@ $jq(".post [style]:not(.bbc_spoiler_content), .signature [style]:not(.bbc_spoile
             if (Math.abs(back - fore) < 32) 
             {
                 $this.css({color:"inherit"});
+                fore = (0xCF) / 2.55;
+                
                 if($this.parents(".post").length > 0 && $this.parents(".post_body").attr("darkThemePostFixed") !== "true")
                 { //Is in the main post body
                     if(theme3)
