@@ -14,6 +14,30 @@
 // the difference of brightness between the post frame and the text or text background.
 //Credit to Colonel_Gerdauf - http://linustechtips.com/main/user/87017-colonel-gerdauf/
 
+//The "STW" (seems to work) text readability colour comparison algorithm
+//Based on http://colaargh.blogspot.co.uk/2012/02/readable-text-in-colour.html
+//a and b are arrays in the form [r, g, b]
+//returns a value between 0 and 255 of the effective difference between the two colours
+function getReadabilityDiff (a, b) {
+  //Raises the brightness to the power of 2.2155, then multiplies it by the following weightings:
+  //Weightings: R: 0.22475
+  //            G: 0.7195
+  //            B: 0.05575
+  // values are then scaled by 1/841.685 to give a value between 0 and 255
+  // The value is then rounded, and the difference between the values is returned
+  return Math.abs(
+    Math.round(
+      (Math.pow(a[0], 2.2155) * (0.22475 / 841.685)) +
+      (Math.pow(a[1], 2.2155) * (0.7195  / 841.685)) +
+      (Math.pow(a[2], 2.2155) * (0.05575 / 841.685))
+    ) - Math.round(
+      (Math.pow(b[0], 2.2155) * (0.22475 / 841.685)) +
+      (Math.pow(b[1], 2.2155) * (0.7195  / 841.685)) +
+      (Math.pow(b[2], 2.2155) * (0.05575 / 841.685))
+    )
+  );
+}
+
 var $jq = jQuery.noConflict();
 
 $jq(".post [style]:not(.bbc_spoiler_content), .signature [style]:not(.bbc_spoiler_content), .entry [style]:not(.bbc_spoiler_content)").each(function(){
@@ -25,27 +49,24 @@ $jq(".post [style]:not(.bbc_spoiler_content), .signature [style]:not(.bbc_spoile
 
 	colour = /rgb\((\d{1,3}),\s*(\d{1,3}),\s*(\d{1,3})\)/.exec(colour);
 	bgcolour = /rgb\((\d{1,3}),\s*(\d{1,3}),\s*(\d{1,3})\)/.exec(bgcolour);
+  if(colour !== null) colour.splice(0, 1); //We only want the r, g and b values
+  if(bgcolour !== null) bgcolour.splice(0,1);
 
 	// calculate the brightness of the post frame
+	var blockColour = $this.closest('.post_block').css("background-color");
 
-	var pfcolour = $this.closest('.post_block').css("background-color");
-
-	if (pfcolour === "rgba(0, 0, 0, 0)" || pfcolour === "transparent")
+	if (blockColour === "rgba(0, 0, 0, 0)" || blockColour === "transparent")
 	{
-		pfcolour = $this.closest('.paper-card').css("background-color");
+		blockColour = $this.closest('.paper-card').css("background-color");
 	}
 
-	pfcolour = /rgb\((\d{1,3}),\s*(\d{1,3}),\s*(\d{1,3})\)/.exec(pfcolour);
-	var back = Math.max(pfcolour[1],pfcolour[2],pfcolour[3]) + Math.min(pfcolour[1],pfcolour[2],pfcolour[3]);
-	back /= 5.1; //Get the luminosity component of the post box background as a percentage
+	blockColour = /rgb\((\d{1,3}),\s*(\d{1,3}),\s*(\d{1,3})\)/.exec(blockColour);
+  blockColour.splice(0,1);
 
-	if(back < 40) { //We're in a night theme - carry on
+	if(getReadabilityDiff([0,0,0], blockColour) < 150) { //We're in a night theme - carry on
 		if(colour !== null) {
-			var fore = Math.max(colour[1],colour[2],colour[3]) + Math.min(colour[1],colour[2],colour[3]);
 
-			fore /= 5.1; //express as %
-
-			if (Math.abs(back - fore) < 32) {
+			if (getReadabilityDiff(colour, blockColour) < 20) {
 				//Reset the text colour
 				$this.css({color:""});
 
@@ -61,12 +82,8 @@ $jq(".post [style]:not(.bbc_spoiler_content), .signature [style]:not(.bbc_spoile
 		}
 		if (bgcolour !== null)
 		{
-      //Get the background colour of the text if it's been highlighted
-			var mid = Math.max(bgcolour[1],bgcolour[2],bgcolour[3]) + Math.min(bgcolour[1],bgcolour[2],bgcolour[3]);
-
-			mid /= 5.1; //express as %
-
-			if(Math.abs(back - mid) < 32) { //Get the difference in colour between the post background and the text background
+      //Actually, lets just get rid of all background colour
+			//if(getReadabilityDiff(bgcolour, blockColour) > 32) { //Get the difference in colour between the post background and the text background
 				$this.css({"background-color":""});
 				if($this.parents(".post").length > 0 && $this.parents(".post_body").attr("data-darkThemePostFixed") !== "true") { //Is in the main post body
 					$this.parents(".post_body").children(".cm-post-info").append("<span class='ipsType_small left desc lighter'>&nbsp;&nbsp;|&nbsp;&nbsp;Post colors changed by the Dark Theme Fixer</span>");
@@ -75,7 +92,7 @@ $jq(".post [style]:not(.bbc_spoiler_content), .signature [style]:not(.bbc_spoile
 					$this.parents(".post_body").children(".posted_info").append("<span class='ipsType_small left desc lighter'>&nbsp;&nbsp;|&nbsp;&nbsp;Signature colors changed by the Dark Theme Fixer</span>");
 					$this.parents(".post_body").attr("data-darkThemeSigFixed","true");
 				}
-			}
+			//}
 		}
 	}
 });
