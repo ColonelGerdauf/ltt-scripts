@@ -81,7 +81,7 @@ $jq(".post [style]:not(.bbc_spoiler_content), .signature [style]:not(.bbc_spoile
             var mid = Math.max(bgcolour[1],bgcolour[2],bgcolour[3]) + Math.min(bgcolour[1],bgcolour[2],bgcolour[3]);
             mid /= 5.1; //express as %
             
-            if(Math.abs(fore - mid) < 32) 
+            if(Math.abs(fore - mid) < 40) 
             {
                 $this.css({"background-color":""});
                 if($this.parents(".post").length > 0 && $this.parents(".post_body").attr("darkThemePostFixed") !== "true")
