@@ -21,12 +21,6 @@ $jq(".post [style]:not(.bbc_spoiler_content), .signature [style]:not(.bbc_spoile
 
     var $this = $jq(this);
 
-    var colour = $this.css("color");
-    var bgcolour = $this.css("background-color");
-
-    colour = /rgb\((\d{1,3}),\s*(\d{1,3}),\s*(\d{1,3})\)/.exec(colour);
-    bgcolour = /rgb\((\d{1,3}),\s*(\d{1,3}),\s*(\d{1,3})\)/.exec(bgcolour);
-
     // calculate the brightness of the post frame
 
     var pfcolour = $this.closest('.post_block').css("background-color");
@@ -38,16 +32,21 @@ $jq(".post [style]:not(.bbc_spoiler_content), .signature [style]:not(.bbc_spoile
 
     pfcolour = /rgb\((\d{1,3}),\s*(\d{1,3}),\s*(\d{1,3})\)/.exec(pfcolour);
     var back = Math.max(pfcolour[1],pfcolour[2],pfcolour[3]) + Math.min(pfcolour[1],pfcolour[2],pfcolour[3]);
-    back /= 5.1;
+    back /= 5.1; //express as %
     
     if(back < 40)
     {
+        var colour = $this.css("color");
+        colour = /rgb\((\d{1,3}),\s*(\d{1,3}),\s*(\d{1,3})\)/.exec(colour);
+        
+        var bgcolour = $this.css("background-color");
+        bgcolour = /rgb\((\d{1,3}),\s*(\d{1,3}),\s*(\d{1,3})\)/.exec(bgcolour);
+        
+        var fore = Math.max(colour[1],colour[2],colour[3]) + Math.min(colour[1],colour[2],colour[3]);
+        fore /= 5.1; //express as %
+        
         if(colour !== null)
         {
-            var fore = Math.max(colour[1],colour[2],colour[3]) + Math.min(colour[1],colour[2],colour[3]);
-
-            fore /= 5.1; //express as %
-
             if (Math.abs(back - fore) < 32) 
             {
                 $this.css({color:"inherit"});
@@ -80,12 +79,9 @@ $jq(".post [style]:not(.bbc_spoiler_content), .signature [style]:not(.bbc_spoile
         if (bgcolour !== null) 
         {
             var mid = Math.max(bgcolour[1],bgcolour[2],bgcolour[3]) + Math.min(bgcolour[1],bgcolour[2],bgcolour[3]);
-            var back = Math.max(pfcolour[1],pfcolour[2],pfcolour[3]) + Math.min(pfcolour[1],pfcolour[2],pfcolour[3]);
-
             mid /= 5.1; //express as %
-            back /= 5.1;
-
-            if(Math.abs(back - mid) < 32) 
+            
+            if(Math.abs(fore - mid) < 32) 
             {
                 $this.css({"background-color":""});
                 if($this.parents(".post").length > 0 && $this.parents(".post_body").attr("darkThemePostFixed") !== "true")
