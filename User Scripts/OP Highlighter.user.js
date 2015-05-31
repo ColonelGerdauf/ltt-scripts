@@ -14,35 +14,19 @@
 
 var $jq = jQuery.noConflict();
 var OP = $jq("span[itemprop='creator'] [itemprop='name']").text();
-var newTheme = $jq(".author_info .author").length > 0;
+
 $jq(".post_block").each(function(){
 	if($jq(this).find(".author").text() === OP)
 	{
-		if(newTheme)
-        	{
 			$jq(this).find(".author_info .author")
 				.after($jq("<div>", {class:"lttn-OP"}).text("Original Poster"));
-		}
-		else
-		{
-			$jq(this).find("h3.row2")
-            	.append($jq("<span>", {class:"lttn-OP"}).text("[Original Poster]"));
-		}
 	}
-	});
+});
 
 var css = ".lttn-OP {"+
 	"color: #e64405;"+
 	"font-size: 1.2em;"+
 	"}";
-
-if(!newTheme)
-{
-	css = ".lttn-OP {"+
-        "color: #0bfa31;"+
-        "margin-left: 2px;"+
-        "}";
-}
 
 $jq("head").append($jq("<style>", {id:'lttn-user-style-OPHL'})
 	.text(css));
