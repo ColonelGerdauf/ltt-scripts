@@ -5,8 +5,8 @@
 // @match        *://*.linustechtips.com/*
 // @require      https://code.jquery.com/jquery-2.1.4.min.js
 // @version      1.0.1
-// @updateURL    https://github.com/stormdr1ve/ltt-scripts/raw/master/User%20Scripts/HTTPS%20Fixer.user.js
-// @downloadURL  https://github.com/stormdr1ve/ltt-scripts/raw/master/User%20Scripts/HTTPS%20Fixer.user.js
+// @updateURL    https://github.com/stormdr1ve/ltt-scripts/raw/release/User%20Scripts/HTTPS%20Fixer.user.js
+// @downloadURL  https://github.com/stormdr1ve/ltt-scripts/raw/release/User%20Scripts/HTTPS%20Fixer.user.js
 // @grant        GM_getValue
 // @grant        GM_setValue
 // ==/UserScript==
@@ -49,10 +49,10 @@ if(mode !== "off")
 $jq ("#footer_utilities > ul").append($jq("<li>", {id:"lttn-ue-https"})
                                       .append($jq("<a>", {id:'lttn-ue-https-config', href:'javascript:void(0)'})
                                               .text(["HTTPS Fixer",mode].join(": "))));
-                                                
+
 $jq("#lttn-ue-https-config").click(function(event){
     event.preventDefault();
-    if(mode === "off") 
+    if(mode === "off")
     {
     	mode = "fix";
     }
@@ -60,7 +60,7 @@ $jq("#lttn-ue-https-config").click(function(event){
     {
     	mode = "force";
     }
-    else 
+    else
     {
     	mode = "off";
     }
