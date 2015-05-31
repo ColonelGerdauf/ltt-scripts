@@ -40,30 +40,33 @@ function getReadabilityDiff (a, b) {
 
 var $jq = jQuery.noConflict();
 
-$jq(".post [style]:not(.bbc_spoiler_content), .signature [style]:not(.bbc_spoiler_content), .entry [style]:not(.bbc_spoiler_content)").each(function(){
+var bodyColour = $jq("body").css("background-color");
+bodyColour = /rgb\((\d{1,3}),\s*(\d{1,3}),\s*(\d{1,3})\)/.exec(bodyColour);
+bodyColour.splice(0,1);
 
-	var $this = $jq(this);
+if(getReadabilityDiff([0,0,0], bodyColour)) { //In a night theme
+  $jq(".post [style]:not(.bbc_spoiler_content), .signature [style]:not(.bbc_spoiler_content), .entry [style]:not(.bbc_spoiler_content)").each(function(){
 
-	var colour = $this.css("color");
-	var bgcolour = $this.css("background-color");
+  	var $this = $jq(this);
 
-	colour = /rgb\((\d{1,3}),\s*(\d{1,3}),\s*(\d{1,3})\)/.exec(colour);
-	bgcolour = /rgb\((\d{1,3}),\s*(\d{1,3}),\s*(\d{1,3})\)/.exec(bgcolour);
-  if(colour !== null) colour.splice(0, 1); //We only want the r, g and b values
-  if(bgcolour !== null) bgcolour.splice(0,1);
+  	var colour = $this.css("color");
+  	var bgcolour = $this.css("background-color");
 
-	// calculate the brightness of the post frame
-	var blockColour = $this.closest('.post_block').css("background-color");
+  	colour = /rgb\((\d{1,3}),\s*(\d{1,3}),\s*(\d{1,3})\)/.exec(colour);
+  	bgcolour = /rgb\((\d{1,3}),\s*(\d{1,3}),\s*(\d{1,3})\)/.exec(bgcolour);
+    if(colour !== null) colour.splice(0, 1); //We only want the r, g and b values
+    if(bgcolour !== null) bgcolour.splice(0,1);
 
-	if (blockColour === "rgba(0, 0, 0, 0)" || blockColour === "transparent")
-	{
-		blockColour = $this.closest('.paper-card').css("background-color");
-	}
+  	// calculate the brightness of the post frame
+  	var blockColour = $this.closest('.post_block').css("background-color");
 
-	blockColour = /rgb\((\d{1,3}),\s*(\d{1,3}),\s*(\d{1,3})\)/.exec(blockColour);
-  blockColour.splice(0,1);
+  	if (blockColour === "rgba(0, 0, 0, 0)" || blockColour === "transparent")
+  	{
+  		blockColour = $this.closest('.paper-card').css("background-color");
+  	}
 
-	if(getReadabilityDiff([0,0,0], blockColour) < 150) { //We're in a night theme - carry on
+  	blockColour = /rgb\((\d{1,3}),\s*(\d{1,3}),\s*(\d{1,3})\)/.exec(blockColour);
+    blockColour.splice(0,1);
 		if(colour !== null) {
 
 			if (getReadabilityDiff(colour, blockColour) < 20) {
@@ -93,8 +96,8 @@ $jq(".post [style]:not(.bbc_spoiler_content), .signature [style]:not(.bbc_spoile
 					$this.parents(".post_body").attr("data-darkThemeSigFixed","true");
 				}
 			//}
-		}
-	}
-});
+  		}
+  });
 
-$jq(".entry .ipsType_textblock").css({color:"#CFCFCF"}); //Blog
+  $jq(".entry .ipsType_textblock").css({color:"#CFCFCF"}); //Blog
+}
