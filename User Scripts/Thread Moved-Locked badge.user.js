@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name LTT Thread moved/locked badge
 // @namespace   http://linustechtips.com/main/user/10813-colonel-mortis/
-// @version 1.1.0
+// @version 1.1.1
 // @description Adds a badge to a thread title (in the thread list) to indicate whether it has been locked or moved, like "answered" is handled currently
 // @include /^https?:\/\/linustechtips\.com\/main\/forum\/.*$/
 // @updateURL   https://github.com/stormdr1ve/ltt-scripts/raw/release/User%20Scripts/Thread%20Moved-Locked%20badge.user.js
