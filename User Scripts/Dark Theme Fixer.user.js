@@ -4,7 +4,7 @@
 // @description  Changes dark colors to white, for use with the dark theme on the linustechtips.com forums
 // @match        *://*.linustechtips.com/main/*
 // @require      https://code.jquery.com/jquery-2.1.4.min.js
-// @version      1.1.0
+// @version      1.1.1
 // @updateURL    https://github.com/stormdr1ve/ltt-scripts/raw/release/User%20Scripts/Dark%20Theme%20Fixer.user.js
 // @downloadURL  https://github.com/stormdr1ve/ltt-scripts/raw/release/User%20Scripts/Dark%20Theme%20Fixer.user.js
 // @grant        none
@@ -92,7 +92,7 @@ if(getReadabilityDiff([0,0,0], bodyColour)) { //In a night theme
 					$this.parents(".post_body").children(".cm-post-info").append("<span class='ipsType_small left desc lighter'>&nbsp;&nbsp;|&nbsp;&nbsp;Post colors changed by the Dark Theme Fixer</span>");
 					$this.parents(".post_body").attr("data-darkThemePostFixed","true");
 				} else if ($this.parents(".signature").length > 0 && $this.parents(".post_body").attr("data-darkThemeSigFixed") !== "true") { //Is in the signature
-					$this.parents(".post_body").children(".posted_info").append("<span class='ipsType_small left desc lighter'>&nbsp;&nbsp;|&nbsp;&nbsp;Signature colors changed by the Dark Theme Fixer</span>");
+					$this.parents(".post_body").children(".cm-post-info").append("<span class='ipsType_small left desc lighter'>&nbsp;&nbsp;|&nbsp;&nbsp;Signature colors changed by the Dark Theme Fixer</span>");
 					$this.parents(".post_body").attr("data-darkThemeSigFixed","true");
 				}
 			//}
