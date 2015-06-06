@@ -18,8 +18,8 @@ var OP = $jq("span[itemprop='creator'] [itemprop='name']").text();
 $jq(".post_block").each(function(){
 	if($jq(this).find(".author").text() === OP)
 	{
-			$jq(this).find(".author_info .author")
-				.after($jq("<div>", {class:"lttn-OP"}).text("Original Poster"));
+		$jq(this).find(".author_info .author")
+			.after($jq("<div>", {class:"lttn-OP"}).text("Original Poster"));
 	}
 });
 
