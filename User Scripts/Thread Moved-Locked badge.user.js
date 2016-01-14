@@ -1,11 +1,11 @@
 // ==UserScript==
 // @name LTT Thread moved/locked badge
 // @namespace   http://linustechtips.com/main/user/10813-colonel-mortis/
-// @version 1.1.0
+// @version 1.1.1
 // @description Adds a badge to a thread title (in the thread list) to indicate whether it has been locked or moved, like "answered" is handled currently
 // @include /^https?:\/\/linustechtips\.com\/main\/forum\/.*$/
-// @updateURL   https://github.com/stormdr1ve/ltt-scripts/raw/master/User%20Scripts/Thread%20Moved-Locked%20badge.user.js
-// @downloadURL https://github.com/stormdr1ve/ltt-scripts/raw/master/User%20Scripts/Thread%20Moved-Locked%20badge.user.js
+// @updateURL   https://github.com/stormdr1ve/ltt-scripts/raw/release/User%20Scripts/Thread%20Moved-Locked%20badge.user.js
+// @downloadURL https://github.com/stormdr1ve/ltt-scripts/raw/release/User%20Scripts/Thread%20Moved-Locked%20badge.user.js
 // ==/UserScript==
 
 
@@ -25,10 +25,6 @@ for (var l = 1; l<threads.length; l++){ //yes, starting on 1 is deliberate
 			case 'This topic has been moved':
 				threads[l].parentElement.getElementsByClassName("col_f_content")[0].insertAdjacentHTML("afterbegin","<span class='ipsBadge ipsBadge_grey has_icon'>Moved</span>");
 				break;
-			/*default: //unknown thread type - replace with warning later
-				icon.innerHTML = '<b>ERR</b>';
-				console.log("Err - "+icon.attributes.title.value);
-				break;*/
 		}
 	} else { //thread is read and can be posted in
 		//threads[l].innerHTML = '<img alt="New Replies" src="http://linustechtips.com/main/public/style_images/day_theme_images_new/t_unread.png">';
